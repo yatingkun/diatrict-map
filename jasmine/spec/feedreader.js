@@ -39,7 +39,8 @@ $(function() {
     describe('The menu', function() {
         /**经过查看，菜单元素默认隐藏是通过body元素属性的menu-hidden实现的****/
         it('menu default is hidden', function() {
-            expect($('body')[0].className).toBe('menu-hidden');
+            var bodyclass=$('body');
+            expect(bodyclass.hasClass('menu-hidden')).toBe(true);
         });
 /* TODO:
      * 写一个测试用例保证当菜单图标被点击的时候菜单会切换可见状态。这个
@@ -48,40 +49,41 @@ $(function() {
      */
         it('menu will be hidden or showed by clicking menu icon ', function() {
             number = 0;
-            $('.menu-icon-link').on('click', function() {
-                number++;
+            var menu =  $('.menu-icon-link');
+            
+            menu.click(function() {
+                number++;  
                 if (number % 2 === 1) {
-                    expect($('body')[0].className).toBe('');
-                } else {
                     expect($('body')[0].className).toBe('menu-hidden');
+                } else {
+                    expect($('body')[0].className).toBe('');
                 }
-
+                   
             });
-
+             menu.trigger("click");
         });
     });
      /* TODO: 13. 写一个叫做 "Initial Entries" 的测试用例 */
-    describe('Initial Entries',function(){
+    describe('Initial Entries', function () {
         /* TODO:
-     * 写一个测试保证 loadFeed 函数被调用而且工作正常，即在 .feed 容器元素
-     * 里面至少有一个 .entry 的元素。
-     *
-     * 记住 loadFeed() 函数是异步的所以这个而是应该使用 Jasmine 的 beforeEach
-     * 和异步的 done() 函数。
-     */
-         beforeEach(function (done) {
+         * 写一个测试保证 loadFeed 函数被调用而且工作正常，即在 .feed 容器元素
+         * 里面至少有一个 .entry 的元素。
+         *
+         * 记住 loadFeed() 函数是异步的所以这个而是应该使用 Jasmine 的 beforeEach
+         * 和异步的 done() 函数。
+         */
+        beforeEach(function (done) {
             loadFeed(0, function () {
                 done();
             });
         });
-        it('function loadFeed can work well', function (done) {
+        it('and loadFeed function can be work', function (done) {
             var entry = $('.feed').find('.entry');
             expect(entry.length).not.toBe(0);
             done();
-        });
+        })
     });
-
-     /* TODO: 写一个叫做 "New Feed Selection" 的测试用例 */
+    /* TODO: 写一个叫做 "New Feed Selection" 的测试用例 */
     describe('New Feed Selection', function () {
         /* TODO:
          * 写一个测试保证当用 loadFeed 函数加载一个新源的时候内容会真的改变。
@@ -93,11 +95,9 @@ $(function() {
                 done();
             });
         });
-        it('the content of new src change', function (done) {
+        it('will real change', function (done) {
             expect($('.feed').find('h2')[0].childNodes[0]).not.toBe(firstItem[0].childNodes[0]);
             done();
-        });
-    });
-
-   
+        })
+    })
 }());
