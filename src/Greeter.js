@@ -1,7 +1,7 @@
 //Greeter.js
 let data = require('./data.js');
 let Map = require('./map.js');
-
+/********章鱼模型在这里***********/
 module.exports = function () {
     const initialLocation = data;
     let Location = function (data) {
@@ -12,10 +12,7 @@ module.exports = function () {
         this.type = data.type;
     };
 
-    /**
-     * description: VM in the knockout
-     * @constructor
-     */
+    /**视图模型*****/    
     function ViewModel() {
         let markers = Map.Markers;
         let defaultIcon = Map.DefaultIcon;
@@ -28,9 +25,9 @@ module.exports = function () {
             self.locationList.push(new Location(locationItem));
         });
 
-        /**
-         * description: filter the user's input
-         */
+        
+        /**过滤用户在搜索栏填入的地点名字******/
+       
         self.inputFilter = ko.computed(function () {
             let filter = self.userSearch();
             if(!filter){
@@ -52,9 +49,8 @@ module.exports = function () {
             }
         });
 
-        /**
-         * description: display function of the markers
-         */
+         /***展示标注窗体/**
+         
         self.show = function () {
             let title = this.title;
             let address = this.address;
@@ -71,18 +67,14 @@ module.exports = function () {
             });
         };
 
-        /**
-         * description: open function of the navigator in the left
-         */
+        /**设置在左边打开搜索栏的功能*/
         self.openNav = function () {
             document.getElementById('options-box').style.marginLeft = '0';
             document.getElementById('map').style.marginLeft = '302px';
             document.getElementById('container').style.marginLeft = '302px';
         };
 
-        /**
-         * description: close function of the navigator in the left
-         */
+         /**设置在左边关闭搜索栏的功能*/
         self.closeNav = function () {
             document.getElementById('options-box').style.marginLeft = '-302px';
             document.getElementById('map').style.marginLeft = '0';
