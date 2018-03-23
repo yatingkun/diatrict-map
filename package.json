@@ -1,5 +1,5 @@
 {
-  "name": "block-map",
+  "name": "c",
   "version": "1.0.0",
   "description": "A single-page application with knockout.js and map api",
   "main": "index.js",
@@ -9,19 +9,9 @@
     "server": "webpack-dev-server --open",
     "build": "set NODE_ENV=production && webpack --config ./webpack.production.config.js --progress"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yangyunhan/Block-map.git"
-  },
   "keywords": [
     "knockout.js"
   ],
-  "author": "yhuann",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/yangyunhan/Block-map/issues"
-  },
-  "homepage": "https://github.com/yangyunhan/Block-map#readme",
   "devDependencies": {
     "axios": "^0.17.1",
     "babel-core": "^6.26.0",
@@ -47,5 +37,7 @@
     "react-dom": "^16.2.0",
     "sort-by": "^1.2.0",
     "url-loader": "^0.6.2"
-  }
+  },
+  "author": "",
+  "license": "ISC"
 }

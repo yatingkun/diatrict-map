@@ -8,7 +8,7 @@ module.exports = {
     entry: __dirname + "/src/main.js",
     output: {
         path: __dirname + "/dist",
-        filename: "bundle-[hash].js"
+        filename: "bundle.js"
     },
     devtool: "null",
     module: {
@@ -54,24 +54,5 @@ module.exports = {
             },
             ]
     },
-    plugins: [
-        new webpack.BannerPlugin('版权所有，翻版必究'),
-        new HtmlWebpackPlugin({
-            template: __dirname + "/src/index.tmpl.html"
-        }),
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin(),
-        new ExtractTextPlugin("style.css"),
-
-        new CleanWebpackPlugin('dist/*.*', {
-            root: __dirname,
-            verbose: true,
-            dry: false
-        }),
-		new webpack.ProvidePlugin({
-            ko: 'knockout',
-            $: 'jquery',
-            axios: 'axios'
-        })
-    ]
+  
 };

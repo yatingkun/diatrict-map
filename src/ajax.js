@@ -1,5 +1,5 @@
 //ajax.js
-
+/**************本段js用来异步请求关于地点的图片***************/
 module.exports = function getPhotosFromFlickr (place, callback1, callback2) {
     const url = 'https://api.flickr.com/services/rest/';
     const key = '264125a5cd570b52b80d6e6f6983b4a8';
@@ -17,11 +17,7 @@ module.exports = function getPhotosFromFlickr (place, callback1, callback2) {
         callback2(noImg());
     });
 
-    /**
-     * description: style the data from the third part
-     * @param data
-     * @returns {string}
-     */
+   
     function jsonp(data) {
         let photos = data.data.substring(14,data.data.length-1);
         let objPho = JSON.parse(photos);
@@ -34,10 +30,7 @@ module.exports = function getPhotosFromFlickr (place, callback1, callback2) {
             '/' + id + '_' + secret + '_m.jpg';
     }
 
-    /**
-     * description: to do when someting is wrong
-     * @returns {string}
-     */
+  
     function noImg() {
         return '没有相关的图片';
     }

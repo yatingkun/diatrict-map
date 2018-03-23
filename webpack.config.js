@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool: 'eval-source-map',
-    entry: __dirname + "/src/main.js", //已多次提及的唯一入口文件
+    entry: __dirname + "/src/main.js", //入口文件
     output: {
         path: __dirname + "/dist", //打包后的文件存放的地方
         filename: "bundle.js"//打包后输出文件的文件名
@@ -57,17 +57,5 @@ module.exports = {
 			}
         ]
     },
-    plugins: [
-        new webpack.BannerPlugin('版权所有，翻版必究'),
-        new HtmlWebpackPlugin({
-            template: __dirname + "/src/index.tmpl.html"
-        }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.ProvidePlugin({
-            ko: 'knockout',
-            $: 'jquery',
-            axios: 'axios'
-        }),
-		new ExtractTextPlugin("style.css")
-    ]
+   
 };

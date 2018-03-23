@@ -1,3 +1,4 @@
+/******本部分代码为module部分，存放地点的经纬度以及标注里的信息****/
 module.exports = [
         {
             title: '黄鹤楼',
@@ -17,7 +18,7 @@ module.exports = [
             title: '武汉长江大桥',
             position: [114.287254, 30.550217],
             address: '临江大道19附近',
-            tel: 'null',
+            tel: '13737974551',
             type: '风景名胜'
         },
         {
